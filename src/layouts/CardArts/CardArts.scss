@@ -1,0 +1,138 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 320px;
+  height: 450px;
+  background: var(--third-color);
+  padding: 1rem;
+  border-radius: 20px;
+  margin: auto;
+
+  &.hidden {
+    display: none;
+  }
+
+  &__view {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      transition: all var(--main-transition);
+    }
+
+    &__timer {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      width: max-content;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: var(--third-color-alt);
+      border-radius: 20px;
+      padding: 7px 20px;
+      color: var(--title-color);
+      font-size: var(--fs-11);
+      transition: all var(--main-transition);
+
+      img {
+        width: 1.3em;
+      }
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+
+      &:hover {
+        background: var(--first-color-alt);
+        opacity: unset;
+      }
+    }
+
+    &:hover {
+      .card__view__img {
+        filter: blur(10px);
+      }
+
+      .card__view__timer {
+        bottom: -15%;
+        opacity: 0;
+      }
+
+      .btn {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.7rem;
+    color: var(--title-color);
+
+    &__title {
+      font-size: var(--fs-10);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .btn {
+      padding: 0.3rem 0.9rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__auth {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+      }
+    }
+
+    &__cont {
+      line-height: 22px;
+      &__desc {
+        color: var(--title-color);
+        font-size: var(--fs-11);
+      }
+    }
+  }
+
+  animation: var(--main-transition) animationOnLodingRotate forwards;
+}
+
+@keyframes animationOnLodingRotate {
+  0% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}

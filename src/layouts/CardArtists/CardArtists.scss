@@ -1,0 +1,85 @@
+.card-artist {
+  width: 300px;
+  height: auto;
+  background: var(--third-color);
+  padding: 0.6rem;
+  border-radius: 20px;
+  color: var(--title-color);
+  font-weight: 600;
+  margin: auto;
+
+  &__art {
+    position: relative;
+    border-radius: 16px;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+
+      &:hover {
+        background: var(--first-color-alt);
+        opacity: unset;
+      }
+    }
+
+    &__background {
+      border-radius: inherit;
+      width: 100%;
+      height: 100%;
+      transition: all var(--main-transition);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+
+    &__artist {
+      width: 100px;
+      height: 100px;
+      border: solid 3px #fff;
+      border-radius: 50%;
+      margin: -3rem auto 1rem auto;
+      z-index: 1;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__name {
+      font-size: var(--fs-8);
+    }
+
+    &__price {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: var(--fs-11);
+      svg {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  &:hover {
+    .card-artist__art {
+      .btn {
+        opacity: 1;
+      }
+      &__background {
+        filter: blur(12px);
+      }
+    }
+  }
+}

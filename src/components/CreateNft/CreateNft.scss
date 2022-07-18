@@ -1,0 +1,21 @@
+.create-nft {
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+  &__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 2.5rem;
+    border: var(--first-color-alt) solid 2px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, var(--third-color) 40%, transparent);
+    max-width: 800px;
+    margin: 0 auto;
+
+    &__title {
+      font-size: var(--fs-4);
+    }
+  }
+}

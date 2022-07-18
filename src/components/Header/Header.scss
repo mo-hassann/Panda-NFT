@@ -1,0 +1,105 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 1s all;
+  z-index: 99;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--third-color-alt);
+    box-shadow: var(--shadow-1);
+    animation: fixedHeader var(--main-transition) forwards;
+  }
+
+  @keyframes fixedHeader {
+    0% {
+      top: -100%;
+    }
+    100% {
+      top: 0;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    justify-content: space-between;
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .btn {
+      padding: 0.7rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    .mobile-menu {
+      color: var(--title-color);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+    }
+  }
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  .header {
+    .container {
+      .navbar {
+        display: none;
+        &.active {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 999;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .navbar__items {
+            flex-direction: column;
+            font-size: var(--fs-7);
+            gap: 2rem;
+          }
+
+          &::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: block;
+            background: var(--first-color-transparent);
+            backdrop-filter: blur(15px);
+            z-index: -1;
+          }
+        }
+      }
+
+      .btn {
+        background: var(--first-color-alt);
+      }
+
+      .mobile-menu {
+        display: inline-block;
+        z-index: 999;
+      }
+    }
+  }
+}

@@ -1,0 +1,275 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*-------- Colors --------*/
+  --first-color: hsl(227, 100%, 56%);
+  --first-color-alt: hsl(226, 70%, 26%);
+  --first-color-transparent: hsla(224, 63%, 13%, 0.7);
+  --second-color: hsl(307, 94%, 56%);
+  --second-color-alt: hsl(287, 80%, 53%);
+  --third-color: #272d37;
+  --third-color-alt: #0f182e;
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 70%);
+  --body-color: #04091a;
+  --body-color-transparent: rgba(4, 9, 26, 0.6);
+
+  /*-------- Gradients --------*/
+  --gradient-1: linear-gradient(var(--third-color), var(--third-color)) padding-box, linear-gradient(66deg, #e5e5e5, #626262 20%) border-box;
+
+  & .light-mode {
+    /*-------- Colors --------*/
+    --first-color: hsl(227, 100%, 66%);
+    --first-color-alt: hsl(227, 78%, 65%);
+    --first-color-transparent: rgb(141, 163, 227, 0.7);
+    --third-color: #d0e1ff;
+    --third-color-alt: #b2c2ee;
+    --title-color: hsl(218, 38%, 34%);
+    --text-color: hsl(218, 39%, 11%);
+    --body-color: #c0caee;
+    --body-color-transparent: rgba(163, 175, 220, 0.3);
+
+    /*-------- Gradients --------*/
+    --gradient-1: linear-gradient(var(--third-color), var(--third-color)) padding-box, linear-gradient(66deg, #c9d5f7, #a2d3f3 20%) border-box;
+  }
+
+  /*-------- Shadows --------*/
+  --shadow-1: 0px 5px 8px 0px rgba(82, 119, 255, 0.4);
+
+  /*-------- Font --------*/
+  --body-font: "Poppins", sans-serif;
+  --fs-1: 7rem;
+  --fs-2: 4.5rem;
+  --fs-3: 3.6rem;
+  --fs-4: 2.4rem;
+  --fs-5: 2.2rem;
+  --fs-6: 2rem;
+  --fs-7: 1.6rem;
+  --fs-8: 1.5rem;
+  --fs-9: 1.4rem;
+  --fs-10: 1.2rem;
+  --fs-11: 1.1rem;
+  --fs-12: 1rem;
+
+  /*-------- Transitions --------*/
+  --main-transition: 0.5s ease;
+
+  /*-------- Perspective --------*/
+  --main-perspective: 60rem;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 2.5rem;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--first-color);
+    border-radius: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--third-color);
+  }
+}
+
+body {
+  font-family: var(--body-font);
+  height: 200vh;
+  overflow-x: hidden;
+}
+
+#app {
+  background: var(--body-color) url("./assets/imgs/background.png") repeat;
+  color: var(--text-color);
+  transition: var(--main-transition);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: 700;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+input,
+button {
+  font-family: var(--body-font);
+  outline: none;
+  border: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.btn {
+  background: var(--first-color) border-box;
+  padding: 0.9rem 1.8rem;
+  width: max-content;
+  color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+  text-transform: capitalize;
+  font-size: var(--fs-12);
+  transition: var(--main-transition);
+  cursor: pointer;
+
+  &.btn--secondry {
+    border: var(--first-color) solid 1px;
+    background: var(--body-color);
+    color: var(--title-color);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@keyframes fixedBtn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--title-color);
+  font-size: var(--fs-11);
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1124px;
+  margin: 0 auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.section {
+  padding-top: 4.5rem;
+  padding-bottom: 3rem;
+
+  &__title {
+    font-size: var(--fs-4);
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 2.5rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+
+    .section__title {
+      margin-bottom: 0;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.navbar__items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-transform: capitalize;
+  color: var(--text-color);
+
+  .navbar__item {
+    position: relative;
+    transition: all var(--main-transition);
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -40%;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--first-color);
+      transition: width var(--main-transition);
+    }
+
+    &.active,
+    &:hover {
+      color: var(--title-color);
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.swiper-container {
+  width: 100%;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 425px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* For smaller devices */
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+/* For smaller devices */
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 65%;
+  }
+}
